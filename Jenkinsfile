@@ -39,7 +39,7 @@ pipeline {
       steps {
         withAWS(region: "${AWS_REGION}", credentials: 'aws-creds') {
           bat """
-            aws eks --region %AWS_REGION% update-kubeconfig --name your-eks-cluster
+            aws eks --region %AWS_REGION% update-kubeconfig --name docker-desktop
 
             kubectl apply -f k8s/deployment.yaml
           """
