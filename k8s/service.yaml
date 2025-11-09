@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: devops-dashboard-service
+  name: dashboard-service
 spec:
-  type: LoadBalancer   # creates AWS ELB
+  type: LoadBalancer
   selector:
-    app: devops-dashboard   # must match labels in your Deployment
+    app: dashboard
   ports:
-    - port: 80              # external port
-      targetPort: 5000      # container port inside pod
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
